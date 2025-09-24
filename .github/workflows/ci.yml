@@ -35,8 +35,11 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Ensure bin scripts are executable
+        run: chmod +x bin/*
+      
       - name: Scan for security vulnerabilities in JavaScript dependencies
-        run: chmod +x bin/importmap audit
+        run: bin/importmap audit
 
   lint:
     runs-on: ubuntu-latest
